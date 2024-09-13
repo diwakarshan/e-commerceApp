@@ -1,0 +1,112 @@
+<form #myform="ngForm">
+<div class="row">
+    <div *ngIf="errormsg" class="alert alert-danger alert-dismissible fade show" role="alert" id="errormsg">
+        <strong>{{errormsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert" id="successmsg">
+        <strong>{{successmsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    <div class="col-8" [ngClass]="isBooleanVisible ? 'col-8' :'col-12'" id="sidepanel">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header bg-primary">
+                    <div class="row">
+                        <div class="col-6">
+                            Product list
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-sm btn-success" (click)="openSidePanel()">New</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-3 product-for" *ngFor="let product of productList">
+                        <div class="card" id="cards">
+                            <img [src]="product.imageUrl" alt="Card image" class="card-img-top card-img">
+                            <div class="card-body">
+                                <h4 class="card-title">{{product.name}}</h4>
+                                <p class="card-text">TimeSpan:{{product.timeSpan}}</p>
+                                <a class="btn btn-primary" (click)="onEdit(product)">Edit</a>
+                                <a class="btn btn-primary mx-2" (click)="onDelete(product)">Delete</a>
+                            </div>
+                        </div>
+                    </div>                
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-4" *ngIf="isBooleanVisible">
+        <div class="card">
+            <div class="card-header">
+                <div class="card-header bg-primary">
+                    <div class="row">
+                        <div class="col-6">
+                            New Product
+                        </div>
+                        <div class="col-6 text-end">
+                            <button class="btn btn-sm btn-success" (click)="closeSidePanel()">Close</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body" form id="myForm">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">Name</label>
+                            <input type="text" [(ngModel)]="productObj.name" class="form-control" name="name">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Short Name</label>
+                            <input type="text" [(ngModel)]="productObj.shortName" class="form-control" name="shortName">
+                        </div>
+                        <div class="col-6">
+                            <label for="">Price</label>
+                            <input type="text" [(ngModel)]="productObj.price" class="form-control" name="price">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="">Category</label>
+                            <select [(ngModel)]="productObj.category" class="form-select" name="category">
+                                <option value="" class="select-category" selected>Select a category</option>
+                                <option *ngFor="let cate of categoryList" [value]="cate.categoryID">{{cate.categoryName}}</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="">Delivery Time Span</label>
+                            <input type="text" [(ngModel)]="productObj.timeSpan" class="form-control" name="timeSpan">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">Image Url</label>
+                            <input type="text" [(ngModel)]="productObj.imageUrl" class="form-control" name="imageUrl">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="">Product Description</label>
+                            <textarea rows="3" [(ngModel)]="productObj.description" class="form-control" name="description"></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 mt-2 text-center">
+                            <button class="btn btn-success" *ngIf="productObj.id==null" (click)="onSave()">Create Product</button>
+                            <button class="btn btn-primary" *ngIf="productObj.id!==null" (click)="onUpdate()">Update Product</button>
+                        </div>
+                        <div class="col-6 mt-2 text-center">
+                            <button class="btn btn-success" (click)="resetForm()">reset</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>

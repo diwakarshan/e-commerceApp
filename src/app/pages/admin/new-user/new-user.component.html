@@ -1,0 +1,43 @@
+<div class="parent">
+    <div class="container">
+        <div class="left-section"></div>
+        <div class="right-section">
+            <div class="login-container">
+                <form class="login-form">
+                    <h2 class="login-title"><i class="fas fa-user-circle"></i> Login</h2>
+                    <div class="form-control">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" [(ngModel)]="userValues.user_name" name="user_name" placeholder="Username" id="user_name" required>
+                    </div>
+                    <div class="form-control">
+                        <i class="fas fa-user icon"></i>
+                        <input type="text" [(ngModel)]="userValues.email" name="email" placeholder="email" id="email" required>
+                    </div>
+                    <div class="form-control">
+                        <i class="fas fa-user icon"></i>
+                        <input type="number" [(ngModel)]="userValues.mobile" name="mobile" placeholder="9876543210" id="mobile" required>
+                    </div>
+                    <div class="form-control">
+                        <i class="fas fa-lock icon"></i>
+                        <input type="password" [(ngModel)]="userValues.password" name="password" placeholder="Password" id="password" >
+                    </div>
+                    <div class="remember-me">
+                        <input type="checkbox" id="rememberMe" class="checkbox-input">
+                        <span class="checkbox-custom"></span>
+                        <label for="rememberMe">Remember me</label>
+                    </div>
+                    
+                    <div class="social-login">
+                        <i class="fab fa-google social-icon"></i>
+                        <i class="fab fa-facebook-f social-icon"></i>
+                        <i class="fab fa-twitter social-icon"></i>
+                    </div>
+                    <button class="login-button" type="button" (click)="onLogin()">Login</button>
+                    <div class="newUser">
+                        <button class="newUser-button" (click)="regUser()">Registered User?</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

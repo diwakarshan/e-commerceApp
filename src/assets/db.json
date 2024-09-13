@@ -1,0 +1,14 @@
+{
+    "data":[
+        {
+            "sku":"ABC",
+            "name":"Cauliflower",
+            "shortName":"Cf",
+            "price":20,
+            "category":"fruits and vegetables",
+            "delivery":2,
+            "imageUrl":"https://imgs.search.brave.com/g8Eiqg1kUmGJGZJxRqpQCqDIgFz4hLWQA3iTrmwXoKY/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzAwLzU1Lzk0LzU3/LzM2MF9GXzU1OTQ1/NzUzXzhXT3hNb2I3/a0FzVmVYVU1mU1Zh/dUR6RTRESWpiTHha/LmpwZw",
+            "description":"Cauliflower test"
+        }
+    ]
+}
